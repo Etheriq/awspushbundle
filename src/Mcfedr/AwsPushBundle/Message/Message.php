@@ -328,19 +328,15 @@ class Message implements \JsonSerializable
         $apns = [
             'aps' => []
         ];
-
         if (!is_null($text)) {
             $apns['aps']['alert'] = $text;
         }
-
         if ($this->isContentAvailable()) {
             $apns['aps']['content-available'] = 1;
         }
-
         if (!is_null($this->badge)) {
             $apns['aps']['badge'] = $this->badge;
         }
-
         if (!is_null($this->sound)) {
             $apns['aps']['sound'] = $this->sound;
         }
